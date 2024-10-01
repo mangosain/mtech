@@ -1,23 +1,29 @@
-import csv
+import pandas as pd
 
-# Define the path to your CSV file
-file_path = './gapminder.csv'
+# Read the data from the file gapminder.csv
+data = pd.read_csv("/Users/manav/Documents/mtech/SDA/Lab/Task 1/gapminder.csv")
 
-# Initialize variables to calculate the mean
-total = 0
-count = 0
+# Verify that the data has been loaded correctly
+print(data.head())
 
-# Open the CSV file and read it
-with open(file_path, mode='r') as file:
-    reader = csv.DictReader(file)
-    
-    # Iterate through each row and sum the values of the 'lifeExp' column
-    for row in reader:
-        total += float(row['lifeExp'])  # Convert the value to float
-        count += 1
+# Replace missing values in 'lifeExp' with 0
+data["lifeExp"].fillna(0, inplace=True)
 
-# Calculate the mean
-mean_life_exp = total / count
+# Calculate the mean of lifeExp from all the data
+mean_all = data["lifeExp"].mean()
+print("Mean of lifeExp from all the data:", mean_all)
 
-# Print the result
-print(f"Mean of lifeExp: {mean_life_exp}")
+# Calculate the mean of lifeExp by country
+mean_country = data.groupby("country")["lifeExp"].mean()
+print("\nMean of lifeExp by country:")
+print(mean_country)
+
+# Calculate the mean of lifeExp by year
+mean_year = data.groupby("year")["lifeExp"].mean()
+print("\nMean of lifeExp by year:")
+print(mean_year)
+
+# Calculate the mean of lifeExp by continent
+mean_continent = data.groupby("continent")["lifeExp"].mean()
+print("\nMean of lifeExp by continent:")
+print(mean_continent)
