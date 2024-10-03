@@ -59,12 +59,12 @@ print(summary_statistics)
 # Plot histogram for numerical features and bar plot for categorical features
 import matplotlib.pyplot as plt
 
-# Plot bar plot for categorical features
-categorical_columns = df.select_dtypes(include=['object']).columns
-for column in categorical_columns:
-    df[column].value_counts().plot(kind='bar')
-    plt.title(column)
-    plt.show()
+# # Plot bar plot for categorical features
+# categorical_columns = df.select_dtypes(include=['object']).columns
+# for column in categorical_columns:
+#     df[column].value_counts().plot(kind='bar')
+#     plt.title(column)
+#     plt.show()
     
 # Plot histogram for numerical features
 df_no_outliers.hist()

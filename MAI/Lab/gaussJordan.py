@@ -4,7 +4,7 @@ def gauss_jordan(augmented_matrix):
 
     # Forward elimination
     for i in range(n):
-        # Make the diagonal contain all 1s
+        # Make all elemets of the diagonal = 1
         divisor = augmented_matrix[i][i]
         for j in range(i, m):
             augmented_matrix[i][j] /= divisor
@@ -20,14 +20,20 @@ def gauss_jordan(augmented_matrix):
     solution = [augmented_matrix[i][-1] for i in range(n)]
     return solution
 
-# Example usage
+# main function
 if __name__ == "__main__":
-    augmented_matrix = [
-        [-1, -3, -1, 1, -7],
-        [1, -4, -3, -4, -3],
-        [1, 5, 2, 6, -3],
-        [10, 4, -2, -2, 6],
-    ]
+    # take input for number of rows
+    n = int(input("Enter the number of rows for matrix: "))
 
-    solution = gauss_jordan(augmented_matrix)
-    print("Solution:", solution)
+    # take input for number of cols
+    m = int(input("Enter the number of cols for the matrix: "))
+
+    matrix = [[int(input(f"Enter the {i}x{j}th element: ")) for j in range(m)] for i in range(n)]
+
+    # print original matrix
+    print("\nOriginal Matrix:")
+    for rows in matrix:
+        print(rows)
+
+    solution = gauss_jordan(matrix)
+    print("\nSolution:", solution)

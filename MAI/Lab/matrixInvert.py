@@ -2,7 +2,7 @@ def matrix_inversion(matrix):
     n = len(matrix)
     identity = [[1 if i == j else 0 for j in range(n)] for i in range(n)]
     
-    # Perform row operations to get the identity matrix on the left side
+    # Perform row operations to get the identity matrix 
     for i in range(n):
         # Normalize the diagonal element
         divisor = matrix[i][i]
@@ -20,13 +20,19 @@ def matrix_inversion(matrix):
     
     return identity
 
-
+# main fucntion
 if __name__ == "__main__":
-    matrix = [
-        [1, 2],
-        [3, 4],
-    ]
+    # take input for nxn
+    n = int(input("Enter the dimension for matrix: "))
+
+    matrix = [[int(input(f"Enter the {i}x{j}th element: ")) for j in range(n)] for i in range(n)]
+
+    # print original matrix
+    print("\nOriginal Matrix:")
+    for rows in matrix:
+        print(rows)
 
     inverse = matrix_inversion(matrix)
+    print("\nInverse of the original matrix:")
     for row in inverse:
         print(row)
