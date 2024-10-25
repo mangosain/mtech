@@ -27,10 +27,5 @@ if __name__ == "__main__":
 
     matrix = [[int(input(f"Enter the {i}x{j}th element: ")) for j in range(m)] for i in range(n)]
 
-    # print original matrix
-    print("\nOriginal Matrix:")
-    for rows in matrix:
-        print(rows)
-
     solution = gauss_elimination(matrix)
     print("\nSolution:", solution)

@@ -1,4 +1,4 @@
-import random;
+ss+import random;
 
 class Neuron:
     def __init__(self):
@@ -34,7 +34,7 @@ data = [
 neuron = Neuron()
 
 def startTrain():
-    for row in data:
+    for row in data
         neuron.learn(row[0], row[1], row[2])
         
 def startPredict():
